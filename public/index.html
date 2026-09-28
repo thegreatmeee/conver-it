@@ -1,58 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>FreeOnlineConverter — Convert Any File Free</title>
-<meta name="description" content="Free online file converter. Convert images, documents, video and audio in your browser. No upload, no limits.">
-<link rel="stylesheet" href="style.css">
-
-<!-- Conversion libraries (CDN) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iLovePDF Clone | Every tool you need to work with PDFs</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-<header>
-  <h1>🔄 FreeOnlineConverter</h1>
-  <p>Convert images, documents, video & audio — 100% free, private, in your browser.</p>
-</header>
-
-<main>
-  <!-- Category tabs -->
-  <nav class="tabs">
-    <button class="tab active" data-cat="image">🖼️ Image</button>
-    <button class="tab" data-cat="document">📄 Document</button>
-    <button class="tab" data-cat="media">🎬 Video/Audio</button>
-    <button class="tab" data-cat="data">📊 Data</button>
-  </nav>
-
-  <!-- Converter panel -->
-  <section class="converter">
-    <div class="drop-zone" id="dropZone">
-      <p>📁 <strong>Drop file here</strong> or click to select</p>
-      <input type="file" id="fileInput" hidden />
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo" onclick="showHome()">
+        <i class="fas fa-heart text-red"></i>
+        <span>iLove<span class="text-red">PDF</span> Clone</span>
+      </div>
+      <nav class="nav">
+        <a href="#" onclick="showHome()">All Tools</a>
+        <a href="#">Pricing</a>
+        <button class="btn btn-outline">Log In</button>
+      </nav>
     </div>
+  </header>
 
-    <div class="options">
-      <label>Convert to:
-        <select id="targetFormat"></select>
-      </label>
-      <button id="convertBtn" class="btn-primary" disabled>Convert</button>
+  <main id="main-content">
+    <!-- HOME SCREEN -->
+    <section id="home-screen" class="container">
+      <div class="hero">
+        <h1>Every tool you need to work with PDFs</h1>
+        <p>All are 100% FREE and easy to use! Merge, split, compress, convert, rotate, unlock and watermark PDFs with just a few clicks.</p>
+      </div>
+
+      <div class="tools-grid">
+        <!-- PDF Tools -->
+        <div class="tool-card" onclick="selectTool('merge')" data-color="#e74c3c">
+          <div class="tool-icon" style="background: #e74c3c;"><i class="fas fa-object-group"></i></div>
+          <h3>Merge PDF</h3>
+          <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+        </div>
+        <div class="tool-card" onclick="selectTool('split')" data-color="#e67e22">
+          <div class="tool-icon" style="background: #e67e22;"><i class="fas fa-cut"></i></div>
+          <h3>Split PDF</h3>
+          <p>Separate one page or a whole set of pages from a PDF document.</p>
+        </div>
+        <div class="tool-card" onclick="selectTool('rotate')" data-color="#f1c40f">
+          <div class="tool-icon" style="background: #f1c40f;"><i class="fas fa-sync-alt"></i></div>
+          <h3>Rotate PDF</h3>
+          <p>Rotate your PDF files easily. You can rotate multiple PDF files at once.</p>
+        </div>
+        <div class="tool-card" onclick="selectTool('image-to-pdf')" data-color="#2ecc71">
+          <div class="tool-icon" style="background: #2ecc71;"><i class="fas fa-file-image"></i></div>
+          <h3>JPG to PDF</h3>
+          <p>Convert JPG images to PDF in seconds. Easily adjust orientation and margins.</p>
+        </div>
+
+        <!-- Document Conversion Tools (API Powered) -->
+        <div class="tool-card" onclick="selectTool('convert', 'docx', 'pdf')" data-color="#3498db">
+          <div class="tool-icon" style="background: #3498db;"><i class="fas fa-file-word"></i></div>
+          <h3>Word to PDF</h3>
+          <p>Make DOC and DOCX files easy to read by converting them to PDF.</p>
+        </div>
+        <div class="tool-card" onclick="selectTool('convert', 'pdf', 'docx')" data-color="#2980b9">
+          <div class="tool-icon" style="background: #2980b9;"><i class="fas fa-file-pdf"></i></div>
+          <h3>PDF to Word</h3>
+          <p>Easily convert your PDF files into easy to edit DOC and DOCX documents.</p>
+        </div>
+        <div class="tool-card" onclick="selectTool('convert', 'xlsx', 'pdf')" data-color="#27ae60">
+          <div class="tool-icon" style="background: #27ae60;"><i class="fas fa-file-excel"></i></div>
+          <h3>Excel to PDF</h3>
+          <p>Make EXCEL spreadsheets easy to read by converting them to PDF.</p>
+        </div>
+        <div class="tool-card" onclick="selectTool('convert', 'pptx', 'pdf')" data-color="#d35400">
+          <div class="tool-icon" style="background: #d35400;"><i class="fas fa-file-powerpoint"></i></div>
+          <h3>PowerPoint to PDF</h3>
+          <p>Make PPT and PPTX slideshows easy to view by converting them to PDF.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKSPACE SCREEN -->
+    <section id="workspace-screen" class="container hidden">
+      <button class="btn-back" onclick="showHome()"><i class="fas fa-arrow-left"></i> Back to tools</button>
+      
+      <div class="workspace-header">
+        <div class="tool-icon-large" id="ws-icon"><i class="fas fa-object-group"></i></div>
+        <div>
+          <h2 id="ws-title">Merge PDF</h2>
+          <p id="ws-desc" class="text-light">Combine PDFs in the order you want.</p>
+        </div>
+      </div>
+
+      <div class="dropzone" id="dropzone">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <h3>Select PDF file</h3>
+        <p>or drop file here</p>
+        <button class="btn btn-primary" id="select-files-btn">Select file</button>
+        <input type="file" id="file-input" hidden>
+      </div>
+
+      <div class="file-list" id="file-list"></div>
+
+      <div class="options-panel hidden" id="options-panel">
+        <h4>Options</h4>
+        <div id="options-content"></div>
+      </div>
+
+      <div class="action-bar hidden" id="action-bar">
+        <button class="btn btn-primary btn-large" id="process-btn">
+          <i class="fas fa-magic"></i> <span id="process-btn-text">Merge PDF</span>
+        </button>
+      </div>
+
+      <div class="progress-container hidden" id="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <p id="progress-text">Processing...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 iLovePDF Clone. Built with Node.js & CloudConvert.</p>
     </div>
+  </footer>
 
-    <div id="status" class="status"></div>
-    <div id="preview"></div>
-  </section>
-</main>
-
-<footer>
-  <p>🔒 Your files never leave your device. All conversion happens locally.</p>
-</footer>
-
-<script src="app.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
