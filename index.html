@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FreeOnlineConverter — Convert Any File Free</title>
+<meta name="description" content="Free online file converter. Convert images, documents, video and audio in your browser. No upload, no limits.">
+<link rel="stylesheet" href="style.css">
+
+<!-- Conversion libraries (CDN) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>🔄 FreeOnlineConverter</h1>
+  <p>Convert images, documents, video & audio — 100% free, private, in your browser.</p>
+</header>
+
+<main>
+  <!-- Category tabs -->
+  <nav class="tabs">
+    <button class="tab active" data-cat="image">🖼️ Image</button>
+    <button class="tab" data-cat="document">📄 Document</button>
+    <button class="tab" data-cat="media">🎬 Video/Audio</button>
+    <button class="tab" data-cat="data">📊 Data</button>
+  </nav>
+
+  <!-- Converter panel -->
+  <section class="converter">
+    <div class="drop-zone" id="dropZone">
+      <p>📁 <strong>Drop file here</strong> or click to select</p>
+      <input type="file" id="fileInput" hidden />
+    </div>
+
+    <div class="options">
+      <label>Convert to:
+        <select id="targetFormat"></select>
+      </label>
+      <button id="convertBtn" class="btn-primary" disabled>Convert</button>
+    </div>
+
+    <div id="status" class="status"></div>
+    <div id="preview"></div>
+  </section>
+</main>
+
+<footer>
+  <p>🔒 Your files never leave your device. All conversion happens locally.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
