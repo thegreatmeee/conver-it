@@ -1,0 +1,105 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  color: #333;
+}
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  color: white;
+}
+header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+.tab {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #667eea;
+  background: white;
+  color: #667eea;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.tab.active, .tab:hover {
+  background: #667eea;
+  color: white;
+}
+.drop-zone {
+  border: 3px dashed #667eea;
+  border-radius: 12px;
+  padding: 50px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #f8f9ff;
+}
+.drop-zone:hover, .drop-zone.drag {
+  background: #eef0ff;
+  border-color: #764ba2;
+}
+.options {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.options select {
+  padding: 10px;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 150px;
+}
+.btn-primary {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.btn-primary:hover:not(:disabled) { transform: translateY(-2px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.status {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  display: none;
+}
+.status.show { display: block; }
+.status.info { background: #e3f2fd; color: #1565c0; }
+.status.success { background: #e8f5e9; color: #2e7d32; }
+.status.error { background: #ffebee; color: #c62828; }
+#preview { margin-top: 20px; }
+#preview img, #preview video, #preview audio {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+footer {
+  text-align: center;
+  color: white;
+  padding: 30px;
+  font-size: 0.9rem;
+}
